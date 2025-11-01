@@ -1,0 +1,100 @@
+// This is your Prisma schema file
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  password  String
+  role      String   @default("user") // user, admin
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+model Contact {
+  id          String   @id @default(cuid())
+  firstName   String
+  lastName    String
+  email       String   @unique
+  phone       String
+  address     String?
+  city        String?
+  state       String?
+  zipCode     String?
+  notes       String?
+  status      String   @default("active") // active, inactive
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("contacts")
+}
+
+enum VehicleBrand {
+  // American Brands
+  FORD
+  CHEVROLET
+  DODGE
+  RAM
+  JEEP
+  GMC
+  CADILLAC
+  LINCOLN
+  BUICK
+  CHRYSLER
+  TESLA
+  
+  // European Brands
+  BMW
+  MERCEDES_BENZ
+  AUDI
+  VOLKSWAGEN
+  PORSCHE
+  VOLVO
+  JAGUAR
+  LAND_ROVER
+  MINI
+  FIAT
+  ALFA_ROMEO
+  MASERATI
+  FERRARI
+  LAMBORGHINI
+  BENTLEY
+  ROLLS_ROYCE
+  ASTON_MARTIN
+  MCLAREN
+}
+
+enum VehicleStatus {
+  AVAILABLE
+  SOLD
+  RESERVED
+  IN_SERVICE
+}
+
+model Vehicle {
+  id          String        @id @default(cuid())
+  brand       VehicleBrand
+  model       String
+  year        Int
+  vin         String        @unique
+  color       String
+  mileage     Int
+  price       Float
+  status      VehicleStatus @default(AVAILABLE)
+  description String?
+  features    String?       // JSON string of features
+  images      String?       // JSON string of image URLs
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@map("vehicles")
+}
