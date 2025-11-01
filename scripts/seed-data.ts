@@ -19,82 +19,40 @@ const generateImageUrls = (brand: string, model: string, variant: number) => {
   ]
 }
 
-// Vehicle templates with variants
+// Vehicle templates with variants - 3 per brand
 const vehicleTemplates = [
-  // American Brands
-  {
-    brand: VehicleBrand.FORD,
-    model: 'F-150 Lightning',
-    basePrice: 64995,
-    description: 'Electric pickup with impressive range and towing capacity',
-    features: ['Electric', '4WD', 'Pro Power Onboard', 'BlueCruise', 'Panoramic Roof'],
-    variants: [
-      { year: 2024, color: 'Oxford White', mileage: 1250, priceAdjust: 0, status: VehicleStatus.AVAILABLE },
-      { year: 2024, color: 'Antimatter Blue', mileage: 2100, priceAdjust: -2000, status: VehicleStatus.RESERVED },
-      { year: 2023, color: 'Stone Gray', mileage: 8500, priceAdjust: -8000, status: VehicleStatus.AVAILABLE },
-    ],
-  },
-  {
-    brand: VehicleBrand.CHEVROLET,
-    model: 'Corvette Stingray',
-    basePrice: 72995,
-    description: 'Mid-engine sports car with breathtaking performance',
-    features: ['V8 Engine', 'Magnetic Ride Control', 'Performance Exhaust', 'Carbon Flash Accents'],
-    variants: [
-      { year: 2024, color: 'Torch Red', mileage: 890, priceAdjust: 0, status: VehicleStatus.RESERVED },
-      { year: 2024, color: 'Arctic White', mileage: 450, priceAdjust: 1500, status: VehicleStatus.AVAILABLE },
-      { year: 2023, color: 'Rapid Blue', mileage: 5200, priceAdjust: -6500, status: VehicleStatus.AVAILABLE },
-    ],
-  },
-  {
-    brand: VehicleBrand.TESLA,
-    model: 'Model S Plaid',
-    basePrice: 108990,
-    description: 'Tri-motor AWD electric sedan with incredible acceleration',
-    features: ['Tri-Motor AWD', 'Autopilot', 'Glass Roof', '396mi Range', 'Supercharging'],
-    variants: [
-      { year: 2024, color: 'Deep Blue Metallic', mileage: 2100, priceAdjust: 0, status: VehicleStatus.AVAILABLE },
-      { year: 2024, color: 'Pearl White', mileage: 1500, priceAdjust: -1000, status: VehicleStatus.AVAILABLE },
-      { year: 2023, color: 'Midnight Silver', mileage: 9800, priceAdjust: -12000, status: VehicleStatus.SOLD },
-    ],
-  },
-  // European Brands
-  {
-    brand: VehicleBrand.BMW,
-    model: 'M3 Competition',
-    basePrice: 82995,
-    description: 'High-performance sedan with adaptive M suspension',
-    features: ['Twin-Turbo I6', 'M xDrive', 'Carbon Fiber Roof', 'M Sport Seats', 'Harman Kardon'],
-    variants: [
-      { year: 2024, color: 'Isle of Man Green', mileage: 1560, priceAdjust: 0, status: VehicleStatus.AVAILABLE },
-      { year: 2024, color: 'Alpine White', mileage: 800, priceAdjust: 2000, status: VehicleStatus.RESERVED },
-      { year: 2023, color: 'Brooklyn Grey', mileage: 7200, priceAdjust: -9000, status: VehicleStatus.AVAILABLE },
-    ],
-  },
-  {
-    brand: VehicleBrand.MERCEDES_BENZ,
-    model: 'S 580 4MATIC',
-    basePrice: 126950,
-    description: 'Flagship luxury sedan with cutting-edge technology',
-    features: ['V8 Turbo', '4MATIC AWD', 'MBUX Hyperscreen', 'Air Suspension', 'Burmester Audio'],
-    variants: [
-      { year: 2024, color: 'Obsidian Black', mileage: 950, priceAdjust: 0, status: VehicleStatus.RESERVED },
-      { year: 2024, color: 'Selenite Grey', mileage: 1200, priceAdjust: -1500, status: VehicleStatus.AVAILABLE },
-      { year: 2023, color: 'Polar White', mileage: 6500, priceAdjust: -15000, status: VehicleStatus.AVAILABLE },
-    ],
-  },
-  {
-    brand: VehicleBrand.PORSCHE,
-    model: 'Taycan Turbo S',
-    basePrice: 189950,
-    description: 'All-electric sports car with exceptional handling',
-    features: ['Dual Motor AWD', '280mi Range', 'Sport Chrono', 'Adaptive Air Suspension', '800V Charging'],
-    variants: [
-      { year: 2024, color: 'Frozen Blue Metallic', mileage: 1420, priceAdjust: 0, status: VehicleStatus.AVAILABLE },
-      { year: 2024, color: 'Carrara White', mileage: 980, priceAdjust: 3000, status: VehicleStatus.AVAILABLE },
-      { year: 2023, color: 'Jet Black', mileage: 5900, priceAdjust: -18000, status: VehicleStatus.IN_SERVICE },
-    ],
-  },
+  // American Brands (11 brands)
+  { brand: VehicleBrand.FORD, model: 'F-150 Lightning', basePrice: 64995, description: 'Electric pickup with impressive range and towing capacity', features: ['Electric', '4WD', 'Pro Power Onboard', 'BlueCruise'], variants: [{ year: 2024, color: 'Oxford White', mileage: 1250, priceAdjust: 0, status: VehicleStatus.AVAILABLE }, { year: 2024, color: 'Antimatter Blue', mileage: 2100, priceAdjust: -2000, status: VehicleStatus.RESERVED }, { year: 2023, color: 'Stone Gray', mileage: 8500, priceAdjust: -8000, status: VehicleStatus.AVAILABLE }] },
+  { brand: VehicleBrand.CHEVROLET, model: 'Corvette Stingray', basePrice: 72995, description: 'Mid-engine sports car with breathtaking performance', features: ['V8 Engine', 'Magnetic Ride Control', 'Performance Exhaust'], variants: [{ year: 2024, color: 'Torch Red', mileage: 890, priceAdjust: 0, status: VehicleStatus.RESERVED }, { year: 2024, color: 'Arctic White', mileage: 450, priceAdjust: 1500, status: VehicleStatus.AVAILABLE }, { year: 2023, color: 'Rapid Blue', mileage: 5200, priceAdjust: -6500, status: VehicleStatus.AVAILABLE }] },
+  { brand: VehicleBrand.DODGE, model: 'Charger SRT Hellcat', basePrice: 85995, description: 'Supercharged muscle car with 717 horsepower', features: ['Supercharged V8', 'Launch Control', 'Adaptive Damping'], variants: [{ year: 2024, color: 'F8 Green', mileage: 1100, priceAdjust: 0, status: VehicleStatus.AVAILABLE }, { year: 2024, color: 'Pitch Black', mileage: 780, priceAdjust: 2000, status: VehicleStatus.RESERVED }, { year: 2023, color: 'TorRed', mileage: 6400, priceAdjust: -10000, status: VehicleStatus.SOLD }] },
+  { brand: VehicleBrand.RAM, model: '1500 TRX', basePrice: 98995, description: 'Supercharged off-road pickup with unmatched capability', features: ['Supercharged V8', '4WD', 'Off-Road Package', 'Performance Suspension'], variants: [{ year: 2024, color: 'Hydro Blue', mileage: 2300, priceAdjust: 0, status: VehicleStatus.AVAILABLE }, { year: 2024, color: 'Diamond Black', mileage: 1500, priceAdjust: -1500, status: VehicleStatus.AVAILABLE }, { year: 2023, color: 'Ignition Orange', mileage: 7800, priceAdjust: -12000, status: VehicleStatus.RESERVED }] },
+  { brand: VehicleBrand.JEEP, model: 'Wrangler Rubicon 4xe', basePrice: 56895, description: 'Plug-in hybrid with legendary off-road capability', features: ['Plug-in Hybrid', '4WD', 'Rock-Trac', 'Fox Shocks'], variants: [{ year: 2024, color: 'Sarge Green', mileage: 3400, priceAdjust: 0, status: VehicleStatus.AVAILABLE }, { year: 2024, color: 'Bright White', mileage: 2100, priceAdjust: -1000, status: VehicleStatus.AVAILABLE }, { year: 2023, color: 'Sting-Gray', mileage: 9200, priceAdjust: -7500, status: VehicleStatus.SOLD }] },
+  { brand: VehicleBrand.GMC, model: 'Sierra 1500 Denali', basePrice: 71995, description: 'Premium full-size pickup with luxury appointments', features: ['V8 Engine', 'MultiPro Tailgate', 'CarbonPro Bed', 'Adaptive Cruise'], variants: [{ year: 2024, color: 'Onyx Black', mileage: 1850, priceAdjust: 0, status: VehicleStatus.AVAILABLE }, { year: 2024, color: 'Summit White', mileage: 1200, priceAdjust: -1200, status: VehicleStatus.RESERVED }, { year: 2023, color: 'Smokey Quartz', mileage: 8100, priceAdjust: -9000, status: VehicleStatus.AVAILABLE }] },
+  { brand: VehicleBrand.CADILLAC, model: 'Escalade ESV', basePrice: 98995, description: 'Luxury full-size SUV with extended wheelbase', features: ['V8 Engine', '38" Curved OLED', 'Super Cruise', 'AKG Audio'], variants: [{ year: 2024, color: 'Black Raven', mileage: 1800, priceAdjust: 0, status: VehicleStatus.SOLD }, { year: 2024, color: 'Crystal White', mileage: 950, priceAdjust: 1500, status: VehicleStatus.AVAILABLE }, { year: 2023, color: 'Mahogany Metallic', mileage: 7500, priceAdjust: -13000, status: VehicleStatus.AVAILABLE }] },
+  { brand: VehicleBrand.LINCOLN, model: 'Navigator Black Label', basePrice: 112995, description: 'Ultimate luxury SUV with refined elegance', features: ['Twin-Turbo V6', 'Perfect Position Seats', 'Revel Audio', 'Panoramic Roof'], variants: [{ year: 2024, color: 'Pristine White', mileage: 1100, priceAdjust: 0, status: VehicleStatus.AVAILABLE }, { year: 2024, color: 'Infinite Black', mileage: 680, priceAdjust: 2500, status: VehicleStatus.RESERVED }, { year: 2023, color: 'Ceramic Pearl', mileage: 6900, priceAdjust: -15000, status: VehicleStatus.AVAILABLE }] },
+  { brand: VehicleBrand.BUICK, model: 'Enclave Avenir', basePrice: 54995, description: 'Premium three-row SUV with quiet cabin', features: ['V6 Engine', 'QuietTuning', 'Wireless CarPlay', '7 Passenger Seating'], variants: [{ year: 2024, color: 'Summit White', mileage: 2400, priceAdjust: 0, status: VehicleStatus.AVAILABLE }, { year: 2024, color: 'Dark Moon Blue', mileage: 1800, priceAdjust: -800, status: VehicleStatus.AVAILABLE }, { year: 2023, color: 'Ebony Twilight', mileage: 9500, priceAdjust: -8500, status: VehicleStatus.SOLD }] },
+  { brand: VehicleBrand.CHRYSLER, model: 'Pacifica Hybrid', basePrice: 52995, description: 'Plug-in hybrid minivan with family-focused features', features: ['Plug-in Hybrid', 'Stow n Go', 'Uconnect Theater', 'Hands-Free Sliding Doors'], variants: [{ year: 2024, color: 'Ceramic Gray', mileage: 3100, priceAdjust: 0, status: VehicleStatus.AVAILABLE }, { year: 2024, color: 'Bright White', mileage: 2500, priceAdjust: -600, status: VehicleStatus.RESERVED }, { year: 2023, color: 'Fathom Blue', mileage: 11200, priceAdjust: -7800, status: VehicleStatus.AVAILABLE }] },
+  { brand: VehicleBrand.TESLA, model: 'Model S Plaid', basePrice: 108990, description: 'Tri-motor AWD electric sedan with incredible acceleration', features: ['Tri-Motor AWD', 'Autopilot', 'Glass Roof', '396mi Range'], variants: [{ year: 2024, color: 'Deep Blue Metallic', mileage: 2100, priceAdjust: 0, status: VehicleStatus.AVAILABLE }, { year: 2024, color: 'Pearl White', mileage: 1500, priceAdjust: -1000, status: VehicleStatus.AVAILABLE }, { year: 2023, color: 'Midnight Silver', mileage: 9800, priceAdjust: -12000, status: VehicleStatus.SOLD }] },
+  
+  // European Brands (18 brands)
+  { brand: VehicleBrand.BMW, model: 'M3 Competition', basePrice: 82995, description: 'High-performance sedan with adaptive M suspension', features: ['Twin-Turbo I6', 'M xDrive', 'Carbon Fiber Roof', 'M Sport Seats'], variants: [{ year: 2024, color: 'Isle of Man Green', mileage: 1560, priceAdjust: 0, status: VehicleStatus.AVAILABLE }, { year: 2024, color: 'Alpine White', mileage: 800, priceAdjust: 2000, status: VehicleStatus.RESERVED }, { year: 2023, color: 'Brooklyn Grey', mileage: 7200, priceAdjust: -9000, status: VehicleStatus.AVAILABLE }] },
+  { brand: VehicleBrand.MERCEDES_BENZ, model: 'S 580 4MATIC', basePrice: 126950, description: 'Flagship luxury sedan with cutting-edge technology', features: ['V8 Turbo', '4MATIC AWD', 'MBUX Hyperscreen', 'Air Suspension'], variants: [{ year: 2024, color: 'Obsidian Black', mileage: 950, priceAdjust: 0, status: VehicleStatus.RESERVED }, { year: 2024, color: 'Selenite Grey', mileage: 1200, priceAdjust: -1500, status: VehicleStatus.AVAILABLE }, { year: 2023, color: 'Polar White', mileage: 6500, priceAdjust: -15000, status: VehicleStatus.AVAILABLE }] },
+  { brand: VehicleBrand.AUDI, model: 'RS e-tron GT', basePrice: 149995, description: 'Electric grand tourer with stunning design', features: ['Dual Motor', 'Quattro AWD', 'Air Suspension', 'Bang & Olufsen'], variants: [{ year: 2024, color: 'Kemora Gray', mileage: 2300, priceAdjust: 0, status: VehicleStatus.IN_SERVICE }, { year: 2024, color: 'Glacier White', mileage: 1100, priceAdjust: 1200, status: VehicleStatus.AVAILABLE }, { year: 2023, color: 'Daytona Grey', mileage: 7900, priceAdjust: -18000, status: VehicleStatus.AVAILABLE }] },
+  { brand: VehicleBrand.VOLKSWAGEN, model: 'ID.4 AWD Pro S', basePrice: 49995, description: 'Versatile electric SUV with practical design', features: ['Dual Motor AWD', 'IQ.Drive Assist', 'Panoramic Roof', 'Travel Assist'], variants: [{ year: 2024, color: 'Kings Red', mileage: 3800, priceAdjust: 0, status: VehicleStatus.AVAILABLE }, { year: 2024, color: 'Dusk Blue', mileage: 2900, priceAdjust: -800, status: VehicleStatus.AVAILABLE }, { year: 2023, color: 'Moonstone Gray', mileage: 12100, priceAdjust: -7500, status: VehicleStatus.SOLD }] },
+  { brand: VehicleBrand.PORSCHE, model: 'Taycan Turbo S', basePrice: 189950, description: 'All-electric sports car with exceptional handling', features: ['Dual Motor AWD', '280mi Range', 'Sport Chrono', '800V Charging'], variants: [{ year: 2024, color: 'Frozen Blue Metallic', mileage: 1420, priceAdjust: 0, status: VehicleStatus.AVAILABLE }, { year: 2024, color: 'Carrara White', mileage: 980, priceAdjust: 3000, status: VehicleStatus.AVAILABLE }, { year: 2023, color: 'Jet Black', mileage: 5900, priceAdjust: -18000, status: VehicleStatus.IN_SERVICE }] },
+  { brand: VehicleBrand.VOLVO, model: 'XC90 Recharge', basePrice: 72995, description: 'Plug-in hybrid luxury SUV with Scandinavian design', features: ['Plug-in Hybrid', 'AWD', 'Bowers & Wilkins', 'Pilot Assist'], variants: [{ year: 2024, color: 'Thunder Grey', mileage: 2600, priceAdjust: 0, status: VehicleStatus.AVAILABLE }, { year: 2024, color: 'Crystal White', mileage: 1900, priceAdjust: -1000, status: VehicleStatus.RESERVED }, { year: 2023, color: 'Onyx Black', mileage: 8800, priceAdjust: -9500, status: VehicleStatus.AVAILABLE }] },
+  { brand: VehicleBrand.JAGUAR, model: 'F-PACE SVR', basePrice: 89995, description: 'High-performance luxury SUV with supercharged power', features: ['Supercharged V8', 'AWD', 'Adaptive Dynamics', 'Meridian Audio'], variants: [{ year: 2024, color: 'British Racing Green', mileage: 1700, priceAdjust: 0, status: VehicleStatus.AVAILABLE }, { year: 2024, color: 'Yulong White', mileage: 1100, priceAdjust: 1500, status: VehicleStatus.AVAILABLE }, { year: 2023, color: 'Santorini Black', mileage: 6700, priceAdjust: -11000, status: VehicleStatus.RESERVED }] },
+  { brand: VehicleBrand.LAND_ROVER, model: 'Range Rover Sport P530', basePrice: 119500, description: 'Luxury performance SUV with off-road prowess', features: ['BMW V8', 'AWD', 'Air Suspension', 'Terrain Response'], variants: [{ year: 2024, color: 'Byron Blue', mileage: 1100, priceAdjust: 0, status: VehicleStatus.AVAILABLE }, { year: 2024, color: 'Fuji White', mileage: 750, priceAdjust: 2200, status: VehicleStatus.RESERVED }, { year: 2023, color: 'Carpathian Grey', mileage: 7100, priceAdjust: -14500, status: VehicleStatus.AVAILABLE }] },
+  { brand: VehicleBrand.MINI, model: 'Cooper S Countryman', basePrice: 39995, description: 'Sporty compact crossover with go-kart handling', features: ['Turbo 4-Cyl', 'ALL4 AWD', 'Harman Kardon', 'Head-Up Display'], variants: [{ year: 2024, color: 'Chili Red', mileage: 4200, priceAdjust: 0, status: VehicleStatus.AVAILABLE }, { year: 2024, color: 'Moonwalk Grey', mileage: 3100, priceAdjust: -700, status: VehicleStatus.AVAILABLE }, { year: 2023, color: 'Midnight Black', mileage: 13500, priceAdjust: -6500, status: VehicleStatus.SOLD }] },
+  { brand: VehicleBrand.FIAT, model: '500e Cabrio', basePrice: 38995, description: 'Electric convertible with Italian flair', features: ['Electric', 'Convertible', 'Fast Charging', 'Connected Services'], variants: [{ year: 2024, color: 'Ocean Green', mileage: 2800, priceAdjust: 0, status: VehicleStatus.AVAILABLE }, { year: 2024, color: 'Glacier Blue', mileage: 1900, priceAdjust: -500, status: VehicleStatus.RESERVED }, { year: 2023, color: 'Bossa Nova White', mileage: 9900, priceAdjust: -5500, status: VehicleStatus.AVAILABLE }] },
+  { brand: VehicleBrand.ALFA_ROMEO, model: 'Giulia Quadrifoglio', basePrice: 84995, description: 'Italian sports sedan with race-bred performance', features: ['Twin-Turbo V6', 'RWD', 'Carbon Fiber Elements', 'Active Aero'], variants: [{ year: 2024, color: 'Rosso Competizione', mileage: 1400, priceAdjust: 0, status: VehicleStatus.AVAILABLE }, { year: 2024, color: 'Trofeo White', mileage: 890, priceAdjust: 1800, status: VehicleStatus.RESERVED }, { year: 2023, color: 'Vulcano Black', mileage: 6200, priceAdjust: -10500, status: VehicleStatus.AVAILABLE }] },
+  { brand: VehicleBrand.MASERATI, model: 'Grecale Trofeo', basePrice: 104995, description: 'Luxury performance SUV with Italian craftsmanship', features: ['Twin-Turbo V6', 'AWD', 'Sonus Faber Audio', 'Active Suspension'], variants: [{ year: 2024, color: 'Blu Emozione', mileage: 1250, priceAdjust: 0, status: VehicleStatus.AVAILABLE }, { year: 2024, color: 'Bianco Astro', mileage: 720, priceAdjust: 2500, status: VehicleStatus.AVAILABLE }, { year: 2023, color: 'Nero Ribelle', mileage: 5800, priceAdjust: -13000, status: VehicleStatus.IN_SERVICE }] },
+  { brand: VehicleBrand.FERRARI, model: 'Roma Spider', basePrice: 278995, description: 'Elegant convertible with Ferrari performance', features: ['Twin-Turbo V8', 'RWD', 'Retractable Hardtop', 'Race Mode'], variants: [{ year: 2024, color: 'Rosso Corsa', mileage: 450, priceAdjust: 0, status: VehicleStatus.RESERVED }, { year: 2024, color: 'Bianco Avus', mileage: 280, priceAdjust: 5000, status: VehicleStatus.AVAILABLE }, { year: 2023, color: 'Blu Tour de France', mileage: 2100, priceAdjust: -25000, status: VehicleStatus.AVAILABLE }] },
+  { brand: VehicleBrand.LAMBORGHINI, model: 'Urus Performante', basePrice: 265995, description: 'Super SUV with unmistakable Lamborghini DNA', features: ['Twin-Turbo V8', 'AWD', 'Torque Vectoring', 'Carbon Ceramic Brakes'], variants: [{ year: 2024, color: 'Verde Mantis', mileage: 680, priceAdjust: 0, status: VehicleStatus.AVAILABLE }, { year: 2024, color: 'Bianco Monocerus', mileage: 420, priceAdjust: 8000, status: VehicleStatus.RESERVED }, { year: 2023, color: 'Nero Noctis', mileage: 3200, priceAdjust: -28000, status: VehicleStatus.AVAILABLE }] },
+  { brand: VehicleBrand.BENTLEY, model: 'Continental GT Speed', basePrice: 289995, description: 'Grand tourer combining luxury with sporting prowess', features: ['Twin-Turbo W12', 'AWD', 'Naim Audio', 'Rotating Display'], variants: [{ year: 2024, color: 'Verdant', mileage: 580, priceAdjust: 0, status: VehicleStatus.AVAILABLE }, { year: 2024, color: 'Ice White', mileage: 350, priceAdjust: 12000, status: VehicleStatus.RESERVED }, { year: 2023, color: 'Onyx', mileage: 2800, priceAdjust: -32000, status: VehicleStatus.AVAILABLE }] },
+  { brand: VehicleBrand.ROLLS_ROYCE, model: 'Ghost Extended', basePrice: 389995, description: 'Ultimate luxury sedan with effortless performance', features: ['Twin-Turbo V12', 'AWD', 'Bespoke Audio', 'Starlight Headliner'], variants: [{ year: 2024, color: 'English White', mileage: 420, priceAdjust: 0, status: VehicleStatus.AVAILABLE }, { year: 2024, color: 'Black Diamond', mileage: 250, priceAdjust: 15000, status: VehicleStatus.RESERVED }, { year: 2023, color: 'Andalusian White', mileage: 1900, priceAdjust: -38000, status: VehicleStatus.AVAILABLE }] },
+  { brand: VehicleBrand.ASTON_MARTIN, model: 'DB12', basePrice: 259995, description: 'Super tourer with stunning British design', features: ['Twin-Turbo V8', 'RWD', 'Adaptive Damping', 'Premium Audio'], variants: [{ year: 2024, color: 'Aston Martin Racing Green', mileage: 520, priceAdjust: 0, status: VehicleStatus.AVAILABLE }, { year: 2024, color: 'Lunar White', mileage: 310, priceAdjust: 8500, status: VehicleStatus.AVAILABLE }, { year: 2023, color: 'Ultramarine Black', mileage: 2500, priceAdjust: -26000, status: VehicleStatus.IN_SERVICE }] },
+  { brand: VehicleBrand.MCLAREN, model: '750S Spider', basePrice: 324995, description: 'Track-focused supercar with open-air thrills', features: ['Twin-Turbo V8', 'RWD', 'Carbon Fiber Monocoque', 'Active Aero'], variants: [{ year: 2024, color: 'McLaren Orange', mileage: 390, priceAdjust: 0, status: VehicleStatus.RESERVED }, { year: 2024, color: 'Silica White', mileage: 220, priceAdjust: 10000, status: VehicleStatus.AVAILABLE }, { year: 2023, color: 'Burton Blue', mileage: 1800, priceAdjust: -35000, status: VehicleStatus.AVAILABLE }] },
 ]
 
 const usContacts = [
@@ -337,7 +295,9 @@ async function seedData() {
 
     console.log('\n✅ Database seeded successfully!')
     console.log(`\nSummary:`)
-    console.log(`   - ${vehicleCount} vehicles added (3 variants per model)`)
+    console.log(`   - ${vehicleCount} vehicles added (3 per brand across all 29 brands)`)
+    console.log(`   - 11 American brands: Ford, Chevrolet, Dodge, RAM, Jeep, GMC, Cadillac, Lincoln, Buick, Chrysler, Tesla`)
+    console.log(`   - 18 European brands: BMW, Mercedes-Benz, Audi, VW, Porsche, Volvo, Jaguar, Land Rover, MINI, Fiat, Alfa Romeo, Maserati, Ferrari, Lamborghini, Bentley, Rolls-Royce, Aston Martin, McLaren`)
     console.log(`   - Each vehicle has 8 images (4 exterior, 4 interior)`)
     console.log(`   - 15 contacts added across 15 US states`)
     console.log(`\nYou can now view this data in your dashboard! 🎉\n`)
