@@ -105,7 +105,11 @@ Register from the login page; the app auto-signs in after successful registratio
 
 ### Troubleshooting
 
-- Error: “No Next.js version detected. Also check your Root Directory setting…” → Your Vercel Root Directory points to the wrong folder. Set it to the repository root that contains `package.json` and redeploy.
+- **Build Error: "No Next.js version detected…"** → Your Vercel Root Directory points to the wrong folder. Set it to the repository root that contains `package.json` and redeploy.
+
+- **Login fails on Vercel (works locally)** → Check that `NEXTAUTH_URL` is set to your production URL (e.g., `https://your-project.vercel.app`), NOT `http://localhost:3000`. Update the environment variable and redeploy.
+
+- **Need to check if users exist?** → Run `npx tsx scripts/check-users.ts` locally to see registered users in your database.
 
 ## Project Structure (key files)
 
