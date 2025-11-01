@@ -8,7 +8,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "db:seed": "tsx scripts/seed-data.ts",
+    "db:clear": "tsx scripts/clear-data.ts",
+    "db:check-users": "tsx scripts/check-users.ts"
   },
   "dependencies": {
     "@prisma/client": "^6.18.0",
