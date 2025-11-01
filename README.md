@@ -50,8 +50,6 @@ npm install
 ```env
 # Database
 DATABASE_URL="postgresql://user:password@localhost:5432/crm_app?schema=public"
-# Optionally set PRISMA_DATABASE_URL (falls back to DATABASE_URL if omitted)
-PRISMA_DATABASE_URL="postgresql://user:password@localhost:5432/crm_app?schema=public"
 
 # Auth
 NEXTAUTH_URL="http://localhost:3000"
@@ -90,7 +88,6 @@ Register from the login page; the app auto-signs in after successful registratio
 
 3) Settings → Environment Variables (set for Development/Preview/Production)
    - `DATABASE_URL`
-   - `PRISMA_DATABASE_URL` (optional if same as `DATABASE_URL`)
    - `NEXTAUTH_URL` (e.g., `https://<your-project>.vercel.app`)
    - `NEXTAUTH_SECRET`
    - `BLOB_READ_WRITE_TOKEN`

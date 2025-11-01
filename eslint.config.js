@@ -1,5 +1,4 @@
 // Flat config for ESLint v9 and Next.js 15
-// Use ESLint directly without @rushstack/eslint-patch
 import js from '@eslint/js'
 import typescript from '@typescript-eslint/eslint-plugin'
 import tsParser from '@typescript-eslint/parser'
