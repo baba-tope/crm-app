@@ -308,7 +308,7 @@ export default function EditVehiclePage() {
           />
         </div>
 
-        <ImageUpload images={images} onImagesChange={setImages} />
+        <ImageUpload images={images} onImagesChange={setImages} maxImages={8} />
 
         <div className="flex justify-end space-x-3">
           <button

@@ -2,22 +2,8 @@ import { PrismaClient, VehicleBrand, VehicleStatus } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
-// Helper function to generate image URLs
-const generateImageUrls = (brand: string, model: string, variant: number) => {
-  const brandSlug = brand.toLowerCase().replace(/_/g, '-')
-  const modelSlug = model.toLowerCase().replace(/\s+/g, '-')
-  
-  return [
-    `https://images.unsplash.com/photo-${variant}/${brandSlug}-${modelSlug}-exterior-front.jpg`,
-    `https://images.unsplash.com/photo-${variant}/${brandSlug}-${modelSlug}-exterior-side.jpg`,
-    `https://images.unsplash.com/photo-${variant}/${brandSlug}-${modelSlug}-exterior-rear.jpg`,
-    `https://images.unsplash.com/photo-${variant}/${brandSlug}-${modelSlug}-exterior-angle.jpg`,
-    `https://images.unsplash.com/photo-${variant}/${brandSlug}-${modelSlug}-interior-dashboard.jpg`,
-    `https://images.unsplash.com/photo-${variant}/${brandSlug}-${modelSlug}-interior-seats.jpg`,
-    `https://images.unsplash.com/photo-${variant}/${brandSlug}-${modelSlug}-interior-steering.jpg`,
-    `https://images.unsplash.com/photo-${variant}/${brandSlug}-${modelSlug}-interior-tech.jpg`,
-  ]
-}
+// Note: Images start empty - users can upload real images via the dashboard
+// This avoids broken placeholder URLs and demonstrates the Vercel Blob upload workflow
 
 // Vehicle templates with variants - 3 per brand
 const vehicleTemplates = [
@@ -258,11 +244,10 @@ async function seedData() {
     let vinCounter = 1
 
     // Seed vehicles from templates
-    console.log('🚗 Creating vehicles with images...')
+    console.log('🚗 Creating vehicles...')
     for (const template of vehicleTemplates) {
       for (let variantIndex = 0; variantIndex < template.variants.length; variantIndex++) {
         const variant = template.variants[variantIndex]
-        const images = generateImageUrls(template.brand, template.model, variantIndex + 1)
         
         const vehicleData = {
           brand: template.brand,
@@ -275,11 +260,11 @@ async function seedData() {
           status: variant.status,
           description: template.description,
           features: JSON.stringify(template.features),
-          images: JSON.stringify(images),
+          images: null, // Start with no images - users can upload via dashboard
         }
 
         const created = await prisma.vehicle.create({ data: vehicleData })
-        console.log(`   ✓ ${created.year} ${created.brand} ${created.model} (${created.color}) - ${images.length} images`)
+        console.log(`   ✓ ${created.year} ${created.brand} ${created.model} (${created.color})`)
         
         vehicleCount++
         vinCounter++
@@ -298,7 +283,7 @@ async function seedData() {
     console.log(`   - ${vehicleCount} vehicles added (3 per brand across all 29 brands)`)
     console.log(`   - 11 American brands: Ford, Chevrolet, Dodge, RAM, Jeep, GMC, Cadillac, Lincoln, Buick, Chrysler, Tesla`)
     console.log(`   - 18 European brands: BMW, Mercedes-Benz, Audi, VW, Porsche, Volvo, Jaguar, Land Rover, MINI, Fiat, Alfa Romeo, Maserati, Ferrari, Lamborghini, Bentley, Rolls-Royce, Aston Martin, McLaren`)
-    console.log(`   - Each vehicle has 8 images (4 exterior, 4 interior)`)
+    console.log(`   - Vehicles start with no images - upload real images via dashboard`)
     console.log(`   - 15 contacts added across 15 US states`)
     console.log(`\nYou can now view this data in your dashboard! 🎉\n`)
 
