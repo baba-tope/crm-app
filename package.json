@@ -21,7 +21,7 @@
     "next-auth": "^4.24.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "vercel": "^28.18.5",
+    "vercel": "^31.2.0",
     "zod": "^3.23.0"
   },
   "devDependencies": {
