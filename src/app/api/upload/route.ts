@@ -38,6 +38,9 @@ export async function POST(request: Request) {
     // Upload to Vercel Blob
     const blob = await put(file.name, file, {
       access: 'public',
+      // @vercel/blob >= 1.0 defaults addRandomSuffix to false; keep the
+      // pre-1.0 behavior so same-name uploads don't collide
+      addRandomSuffix: true,
     })
 
     return NextResponse.json({ url: blob.url })
