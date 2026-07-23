@@ -14,10 +14,10 @@ async function checkUsers() {
     })
 
     if (users.length === 0) {
-      console.log('❌ No users found in database. You need to register first!')
+      console.log('FAIL No users found in database. You need to register first!')
       console.log('\nGo to your app and click "Register here" to create an account.')
     } else {
-      console.log(`✅ Found ${users.length} user(s) in database:\n`)
+      console.log(`OK Found ${users.length} user(s) in database:\n`)
       users.forEach((user, i) => {
         console.log(`${i + 1}. ${user.email} (${user.name})`)
         console.log(`   Created: ${user.createdAt.toISOString()}`)

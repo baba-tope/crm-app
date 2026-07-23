@@ -4,13 +4,13 @@ A modern CRM application for car dealerships built with Next.js, featuring authe
 
 ## Features
 
-- 🔐 Authentication (NextAuth, credentials)
-- 👥 Contact Management (CRUD)
-- 🚗 Vehicle Inventory (CRUD for American and European brands)
-- �️ Image uploads via Vercel Blob + Next/Image
-- 🛡️ Server-side rate limiting for sensitive routes
-- 🎨 Tailwind CSS v4 (CSS-first)
-- �️ PostgreSQL + Prisma ORM
+- Authentication (NextAuth, credentials)
+- Contact Management (CRUD)
+- Vehicle Inventory (CRUD for American and European brands)
+- � Image uploads via Vercel Blob + Next/Image
+- Server-side rate limiting for sensitive routes
+- Tailwind CSS v4 (CSS-first)
+- � PostgreSQL + Prisma ORM
 
 ## Tech Stack (current)
 

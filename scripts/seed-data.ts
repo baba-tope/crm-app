@@ -225,7 +225,7 @@ const usContacts = [
 ]
 
 async function seedData() {
-  console.log('🌱 Starting database seed...\n')
+  console.log('Starting database seed...\n')
 
   try {
     // Check if data already exists
@@ -233,7 +233,7 @@ async function seedData() {
     const existingContacts = await prisma.contact.count()
 
     if (existingVehicles > 0 || existingContacts > 0) {
-      console.log(`⚠️  Database already has data:`)
+      console.log(` Database already has data:`)
       console.log(`   - ${existingVehicles} vehicles`)
       console.log(`   - ${existingContacts} contacts`)
       console.log('\nTo re-seed, delete existing data first or use a fresh database.\n')
@@ -244,7 +244,7 @@ async function seedData() {
     let vinCounter = 1
 
     // Seed vehicles from templates
-    console.log('🚗 Creating vehicles...')
+    console.log('Creating vehicles...')
     for (const template of vehicleTemplates) {
       for (let variantIndex = 0; variantIndex < template.variants.length; variantIndex++) {
         const variant = template.variants[variantIndex]
@@ -264,7 +264,7 @@ async function seedData() {
         }
 
         const created = await prisma.vehicle.create({ data: vehicleData })
-        console.log(`   ✓ ${created.year} ${created.brand} ${created.model} (${created.color})`)
+        console.log(`   OK ${created.year} ${created.brand} ${created.model} (${created.color})`)
         
         vehicleCount++
         vinCounter++
@@ -272,23 +272,23 @@ async function seedData() {
     }
 
     // Seed contacts
-    console.log('\n👥 Creating contacts across the US...')
+    console.log('\nCreating contacts across the US...')
     for (const contact of usContacts) {
       const created = await prisma.contact.create({ data: contact })
-      console.log(`   ✓ ${created.firstName} ${created.lastName} (${created.city}, ${created.state})`)
+      console.log(`   OK ${created.firstName} ${created.lastName} (${created.city}, ${created.state})`)
     }
 
-    console.log('\n✅ Database seeded successfully!')
+    console.log('\nOK Database seeded successfully!')
     console.log(`\nSummary:`)
     console.log(`   - ${vehicleCount} vehicles added (3 per brand across all 29 brands)`)
     console.log(`   - 11 American brands: Ford, Chevrolet, Dodge, RAM, Jeep, GMC, Cadillac, Lincoln, Buick, Chrysler, Tesla`)
     console.log(`   - 18 European brands: BMW, Mercedes-Benz, Audi, VW, Porsche, Volvo, Jaguar, Land Rover, MINI, Fiat, Alfa Romeo, Maserati, Ferrari, Lamborghini, Bentley, Rolls-Royce, Aston Martin, McLaren`)
     console.log(`   - Vehicles start with no images - upload real images via dashboard`)
     console.log(`   - 15 contacts added across 15 US states`)
-    console.log(`\nYou can now view this data in your dashboard! 🎉\n`)
+    console.log(`\nYou can now view this data in your dashboard! \n`)
 
   } catch (error) {
-    console.error('❌ Error seeding database:', error)
+    console.error('FAIL Error seeding database:', error)
     throw error
   } finally {
     await prisma.$disconnect()
